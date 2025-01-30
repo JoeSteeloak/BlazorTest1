@@ -1,4 +1,51 @@
 @page "/convert"
 @inject HttpClient Http
+<PageTitle>Konvertera</PageTitle>
 
 <h1>Konvertera</h1>
+
+<h3>Enhetskonverterare</h3>
+
+<p>Skriv in valfritt värde för att konvertera det</p>
+
+<label for="meters">Meter:</label>
+<input type="number" @bind="Meters" @bind:event="oninput" />
+<p>Resultat: @feet feet</p>
+
+<label for="kmh">Km/h:</label>
+<input type="number" @bind="Kmh" @bind:event="oninput" />
+<p>Resultat: @mph miles/hour</p>
+
+@code {
+    private double meters;
+    private double feet;
+    private double kmh;
+    private int mph;
+
+    private double Meters
+    {
+        get => meters;
+        set
+        {
+            meters = value;
+            Convert();
+        }
+    }
+
+    private double Kmh
+    {
+        get => kmh;
+        set
+        {
+            kmh = value;
+            Convert();
+        }
+    }
+
+    private void Convert()
+    {
+        feet = Math.Round(meters * 3.28084, 2);
+        mph = (int)Math.Round(kmh * 0.621371);
+    }
+}
+

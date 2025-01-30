@@ -8,12 +8,12 @@
         <div class="date">
             <p>Dagens Datum är: @DateTime.Now.ToString("yyyy-MM-dd")</p>
         </div>
-        <i class="fa fa-bars fa-2x" onclick="toggleMenu()" id="hamburger"></i>
+        <i class="fa fa-bars fa-2x" @onclick="ToggleMenu" id="hamburger"></i>
     </header>
 
     <div class="flex-container" >
         <!-- Sidomeny -->
-        <div class="navbar" id="navMenu" style="flex-grow: 1; align-self: center">
+        <div class="navbar @(isMenuOpen ? "open" : "")" id="navMenu" style="flex-grow: 1; align-self: center">
             <NavMenu />
         </div>
 
@@ -29,3 +29,12 @@
             <p>av Jonas Ståleker <br> Kontakta mig via e-post: jost2306@student.miun.se</p>
         </div>
     </footer>
+
+@code {
+    private bool isMenuOpen = false;
+
+    private void ToggleMenu()
+    {
+        isMenuOpen = !isMenuOpen;
+    }
+}
