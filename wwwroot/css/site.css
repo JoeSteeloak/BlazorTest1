@@ -1,0 +1,137 @@
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.btn:focus,
+.btn:active:focus,
+.btn-link.nav-link:focus,
+.form-control:focus,
+.form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+}
+
+.form-floating>.form-control-plaintext::placeholder,
+.form-floating>.form-control::placeholder {
+    color: var(--bs-secondary-color);
+    text-align: end;
+}
+
+.form-floating>.form-control-plaintext:focus::placeholder,
+.form-floating>.form-control:focus::placeholder {
+    text-align: start;
+}
+
+.date {
+    margin-left: auto;
+    /* Flyttar datumet till höger */
+}
+
+header {
+    background-color: #fad96c;
+    padding: 1rem;
+}
+
+footer {
+    text-align: center;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    height: 70vh;
+    align-items: center;
+}
+
+main {
+    max-width: 700px;
+    align-content: center;
+}
+
+@media (max-width: 845px) {
+    .flex-container {
+        flex-direction: column;
+        height: 100%;
+    }
+
+    main {
+        padding: 1em;
+    }
+
+    #hamburger {
+        display: fixed;
+        margin-top: 100px;
+    }
+
+    #hamburger:hover {
+        cursor: pointer;
+    }
+
+    .navbar {
+        display: none;
+    }
+
+    #navMenu.open {
+        display: flex;
+    }
+}
+
+nav {
+    margin: 1em;
+}
+
+nav ul li {
+    margin: 1em;
+    list-style: none;
+}
+
+nav ul li a {
+    text-decoration: none;
+    border: 1px solid black;
+    display: block;
+    width: 150px;
+    text-align: center;
+    color: black;
+    font-size: larger;
+}
+
+nav ul li a:hover {
+    box-shadow: 1px 1px 1px;
+}
+
+nav ul li a:active {
+    background-color: black;
+    color: white;
+}
+
+header {
+    display: flex;
+}
+
+@media (min-width: 846px) {
+    .navbar {
+        max-width: 30vw;
+    }
+
+    #hamburger {
+        display: none;
+    }
+}
+
+#blazor-error-ui {
+    display: none;
+}
