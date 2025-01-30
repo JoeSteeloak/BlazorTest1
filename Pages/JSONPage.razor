@@ -1,0 +1,42 @@
+@page "/json"
+@inject HttpClient Http
+
+<h1>JSON</h1>
+
+@if (schedule == null)
+{
+    <p>Laddar...</p>
+}
+else
+{
+    <table>
+        <thead>
+            <tr>
+                <th>Kurskod:</th>
+                <th>Kursnamn:</th>
+                <th>Progression</th>
+                <th>Kursplan:</th>
+            </tr>
+        </thead>
+    </table>
+}
+
+@code {
+    // Array för kurserna
+    private Schedule[]? schedule;
+
+    //Http-anrop
+    protected override async Task OnInitializedAsync()
+    {
+        schedule = await Http.GetFromJsonAsync<Schedule[]>("https://dahlgren.miun.se/ramschema.php");
+    }
+
+    // Model för ramschema
+    public class Schedule
+    {
+        public string? Code { set; get; }
+        public string? CourseName { set; get; }
+        public string? Progression { get; set; }
+        public string? Syllabus { get; set; }
+    }
+}

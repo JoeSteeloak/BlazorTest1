@@ -1,16 +1,31 @@
 ﻿@inherits LayoutComponentBase
-<div class="page">
-    <div class="sidebar">
-        <NavMenu />
-    </div>
 
-    <main>
-        <div class="top-row px-4">
-            <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
+
+<header>
+        <div>
+            <a asp-area="" asp-page="/Index"><img src="images/JS logo.png" alt="Logo" width="100" /></a>
+        </div>
+        <div class="date">
+            <p>Dagens Datum är: @DateTime.Now.ToString("yyyy-MM-dd")</p>
+        </div>
+        <i class="fa fa-bars fa-2x" onclick="toggleMenu()" id="hamburger"></i>
+    </header>
+
+    <div class="flex-container" >
+        <!-- Sidomeny -->
+        <div class="navbar" id="navMenu" style="flex-grow: 1; align-self: center">
+            <NavMenu />
         </div>
 
-        <article class="content px-4">
+        <!-- Huvudinnehåll -->
+        <main role="main" style="flex-grow: 8">
             @Body
-        </article>
-    </main>
-</div>
+        </main>
+    </div>
+
+    <footer>
+        <hr>
+        <div>
+            <p>av Jonas Ståleker <br> Kontakta mig via e-post: jost2306@student.miun.se</p>
+        </div>
+    </footer>

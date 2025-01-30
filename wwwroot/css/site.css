@@ -132,6 +132,10 @@ header {
     }
 }
 
-#blazor-error-ui {
+#blazor-error-ui, .loading-progress {
     display: none;
+}
+
+.active {
+    background-color: #fad96c;
 }
